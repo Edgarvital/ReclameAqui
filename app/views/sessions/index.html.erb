@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+<html>
+<body>
+<h4>Busca:</h4>
+<%= form_tag(sessions_index_path, method: :get) do %>
+  <b>Titulo: </b>
+  <%= text_field_tag(:search, '') %>
+  <b>Empresa: </b>
+  <%= select_tag :empresa, options_for_select(["empresa1", "empresa2", "empresa3"], "empresa1") %>
+  <%= submit_tag("Buscar") %>
+
+<% end %>
+<h1>Reclamações</h1>
+<p>
+  <% if !@reclamacoes.empty? %>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Texto</th>
+      <th>Ações</th>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @reclamacoes.each do |reclamacao| %>
+      <tr>
+        <% @search = params[:search]
+           @empresa = params[:empresa] %>
+        <% if @search != nil and @search != '' and reclamacao.titulo.include? @search and reclamacao.empresa == @empresa %>
+          <td><%= reclamacao.titulo %></td>
+          <td><%= reclamacao.texto %></td>
+          <td><%= link_to 'Visualizar', usuario_reclamacao_path(reclamacao.usuario_id, reclamacao) %></td>
+        <% elsif @search == nil or @search == '' %>
+          <td><%= reclamacao.titulo %></td>
+          <td><%= reclamacao.texto %></td>
+          <td><%= link_to 'Visualizar', usuario_reclamacao_path(reclamacao.usuario_id, reclamacao) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<% end %>
+</p>
+</body>
+</html>

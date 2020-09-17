@@ -1,0 +1,23 @@
+<header>
+  <div>
+    <nav>
+      <ul>
+        <% if logged_in? %>
+          <li><h3><%= current_user.nome %> </h3></li>
+          <li>
+            <ul>
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings",
+                              edit_usuario_path(current_user) %></li>
+              <li>
+                <%= link_to "Log out", sign_out_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+          <li><%= link_to "Log in", sessions_new_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

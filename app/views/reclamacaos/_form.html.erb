@@ -1,0 +1,40 @@
+<%= form_with(model: [@usuario, reclamacao], local: true) do |form| %>
+  <% if reclamacao.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reclamacao.errors.count, "error") %> prohibited this reclamacao from being saved:</h2>
+
+      <ul>
+        <% reclamacao.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h1>Cadastrar Reclamação</h1>
+    <div class="field">
+      <%= form.label :titulo %>
+      <%= form.text_field :titulo %>
+    </div>
+
+    <div class="field">
+      <%= form.label :texto %>
+      <%= form.text_area :texto %>
+    </div>
+
+    <div class="field">
+      <%= form.label :categoria %>
+      <%= form.text_field :categoria %>
+    </div>
+
+    <div class="field">
+      <%=form.label :empresa%>
+      <%= form.select :empresa, [['Empresa1', 'empresa1'], ['Empresa2', 'empresa2'], ['Empresa3', 'empresa3']] %>
+
+    </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<%end %>

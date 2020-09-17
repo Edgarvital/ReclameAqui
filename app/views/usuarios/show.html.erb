@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<html>
+<body>
+<% if current_user == @usuario %>
+  <ul>
+    <%= link_to 'Pagina Reclamações', usuario_reclamacaos_path(current_user) %> |
+    <%= link_to "Deletar Usuário", @usuario, method: :delete %> |
+    <%= link_to 'Voltar', sessions_index_path %>
+  </ul>
+<% end %>
+<br>
+</body>
+</html>
+<h2>Reclamações</h2>
+<% if !@usuario.reclamacaos.empty? %>
+  <table border="1">
+    <tr>
+      <th>Titulo</th>
+      <th>Texto</th>
+    </tr>
+    <% @usuario.reclamacaos.each do |rec| %>
+      <tr>
+        <td>
+          <%= rec.titulo %>
+        </td>
+        <td>
+          <%= rec.texto %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+<% end %>
+
+
