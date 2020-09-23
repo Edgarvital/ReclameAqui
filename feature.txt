@@ -1,37 +1,37 @@
-Feature:Reclamacão
-As a usuário do ReclameAqui
+Feature:Reclamacao
+As a usuario do ReclameAqui
 i want to adicionar, remover, editar e visualizar uma reclamacão
-so that outros usuários logados ou nao, possam visualizar minhas reclamacões
+so that outros usuarios logados ou nao, possam visualizar minhas reclamacões
 
-Feature:Usuário
-As a usuário nao logado do ReclameAqui
-I want to cadastrar, alterar e visualizar um usuário
-so that eu possa adicionar, remover, editar e visualizar uma reclamação
+Feature:Usuario
+As a usuario nao logado do ReclameAqui
+I want to cadastrar, alterar e visualizar um usuario
+so that eu possa adicionar, remover, editar e visualizar uma reclamacao
 
-Feature:Um Usuario logado ou não, pode buscar um artigo pelo nome e pela empresa
+Feature:Um Usuario logado ou nao, pode buscar um artigo pelo nome e pela empresa
 
-Feature:Um Usuário não logado, pode fazer login
+Feature:Um Usuario nao logado, pode fazer login
 
-Feature:Um Usuário logado, pode fazer logout
+Feature:Um Usuario logado, pode fazer logout
 
 Scenario: Criar uma nova Reclamacao
 Given Eu estou na pagina de reclamacoes do usuario
 When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'Enviei uma mensagem de suporte para empresa1 e nao fui respondido', categoria 'Suporte' e empresa 'empresa1'
-Then Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' na minha pagina de reclamacoes
+Then Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto 'Enviei uma mensagem de suporte para empresa1 e nao fui respondido' na minha pagina de reclamacoes
 
 
 Scenario: Remover uma Reclamacao
 Given Eu estou na pagina de reclamacoes do usuario
-When Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' e clico em destruir
-Then A reclamacao de titulo 'empresa1 nao responde o suporte' e 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' é removida da pagina de reclamacoes
+When Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' And clico em destruir
+Then A reclamacao de titulo 'empresa1 nao responde o suporte' e 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' e removida da pagina de reclamacoes
 
 
-Scenario: Campo obrigatorio em branco
+Scenario: Criar reclamacao com texto e categoria em branco
 Given Eu estou na pagina da nova reclamacao
-When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte' e empresa 'empresa1'
-Then Eu vejo os erros 'Texto can't be blank' e 'Categoria can't be blank'
+When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto '', categoria '' e empresa 'empresa1'
+Then Eu vejo duas mensagens de erro na pagina de nova reclamacao
 
-Scenario: Campo com caracteres insuficientes
+Scenario: Criar reclamacao com caracteres insuficientes em texto
 Given Eu estou na pagina da nova reclamacao
 When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'envi', categoria 'Suporte' e empresa 'empresa1'
-Then Eu vejo o erro 'Texto is too short (minimum is 10 characters)'
+Then Eu vejo um erro na pagina de nova reclamacao
