@@ -1,0 +1,1 @@
+Feature:Um Usuario logado, pode fazer logout

@@ -1,0 +1,1 @@
+Feature:Um Usuario logado ou nao, pode buscar um artigo pelo nome e pela empresa

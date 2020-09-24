@@ -1,0 +1,4 @@
+Feature:Usuario
+As a usuario nao logado do ReclameAqui
+I want to cadastrar, alterar e visualizar um usuario
+so that eu possa adicionar, remover, editar e visualizar uma reclamacao
