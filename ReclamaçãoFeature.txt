@@ -3,17 +3,6 @@ As a usuario do ReclameAqui
 i want to adicionar, remover, editar e visualizar uma reclamacão
 so that outros usuarios logados ou nao, possam visualizar minhas reclamacões
 
-Feature:Usuario
-As a usuario nao logado do ReclameAqui
-I want to cadastrar, alterar e visualizar um usuario
-so that eu possa adicionar, remover, editar e visualizar uma reclamacao
-
-Feature:Um Usuario logado ou nao, pode buscar um artigo pelo nome e pela empresa
-
-Feature:Um Usuario nao logado, pode fazer login
-
-Feature:Um Usuario logado, pode fazer logout
-
 Scenario: Criar uma nova Reclamacao
 Given Eu estou na pagina de reclamacoes do usuario
 When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'Enviei uma mensagem de suporte para empresa1 e nao fui respondido', categoria 'Suporte' e empresa 'empresa1'
