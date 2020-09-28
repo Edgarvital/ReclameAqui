@@ -10,7 +10,12 @@ class UsuarioTest < ActiveSupport::TestCase
     @usuario1 = Usuario.new(login:'2424', password_digest:'password', nome:'Edgar')
     @usuario2 = Usuario.new(login:'2424', password_digest:'password', nome:'Edgar')
     @usuario1.save
-    assert_not @usuario2.sav
+    assert_not @usuario2.save
+  end
+
+  test 'Não deve ser possivel criar um usuário vazio' do
+    @usuario = Usuario.new
+    assert_not @usuario.save
   end
 
 end
