@@ -14,4 +14,12 @@ class ReclamacaoTest < ActiveSupport::TestCase
     @usuario.reclamacaos << @reclamacao
     assert_not @usuario.save
   end
+
+  test "Não deve ser possivel criar uma reclamacao vazia" do
+    @reclamacao = Reclamacao.new
+    @usuario = Usuario.new(login:'2425', password_digest:'password', nome:'Edgar')
+    @usuario.reclamacaos << @reclamacao
+    assert_not @usuario.save
+  end
+
 end
