@@ -43,3 +43,19 @@ Then ("Eu vejo um erro na pagina de nova reclamacao") do
   assert_selector('div#error_explanation', text:'')
   expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
 end
+
+And ("Eu vejo a reclamacao de titulo {string} e texto {string}") do |titulo, texto|
+  expect(page).to have_content(titulo)
+  expect(page).to have_content(texto)
+  expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
+end
+
+And ("Clico em destruir a reclamacao de titulo {string}") do |titulo|
+  click_link "d-#{titulo}"
+end
+
+Then ("A reclamacao de titulo {string} e {string} e removida da pagina de reclamacoes") do |titulo, texto|
+  expect(page).to have_no_content(titulo)
+  expect(page).to have_no_content(texto)
+  expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
+end
