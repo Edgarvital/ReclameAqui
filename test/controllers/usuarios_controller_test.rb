@@ -1,10 +1,10 @@
 require 'test_helper'
+=begin
 
 class UsuariosControllerTest < ActionDispatch::IntegrationTest
   setup do
     @usuario = usuarios(:one)
   end
-
   test "should get index" do
     get usuarios_url
     assert_response :success
@@ -17,7 +17,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { login: @usuario.login, senha: @usuario.senha } }
+      post usuarios_url, params: {usuario: {login: @usuario.login, password_digest: @usuario.senha}}
     end
 
     assert_redirected_to usuario_url(Usuario.last)
@@ -34,7 +34,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usuario" do
-    patch usuario_url(@usuario), params: { usuario: { login: @usuario.login, senha: @usuario.senha } }
+    patch usuario_url(@usuario), params: {usuario: {login: @usuario.login, password_digest: @usuario.senha}}
     assert_redirected_to usuario_url(@usuario)
   end
 
@@ -46,3 +46,4 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to usuarios_url
   end
 end
+=end
