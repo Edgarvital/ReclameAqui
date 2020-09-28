@@ -14,3 +14,9 @@ Feature:Reclamacao
     And Eu estou na pagina de reclamacoes do usuario
     When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto '', categoria '' e empresa 'Empresa1'
     Then Eu vejo duas mensagens de erro na pagina de nova reclamacao
+
+  Scenario: Criar reclamacao com caracteres insuficientes em texto
+    Given Eu estou logado no sistema
+    And Eu estou na pagina de reclamacoes do usuario
+    When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'envi', categoria 'Suporte' e empresa 'Empresa1'
+    Then Eu vejo um erro na pagina de nova reclamacao

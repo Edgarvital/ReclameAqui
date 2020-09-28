@@ -38,3 +38,8 @@ Then ("Eu vejo duas mensagens de erro na pagina de nova reclamacao") do
   assert_selector('div#error_explanation', text:'')
   expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
 end
+
+Then ("Eu vejo um erro na pagina de nova reclamacao") do
+  assert_selector('div#error_explanation', text:'')
+  expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
+end
