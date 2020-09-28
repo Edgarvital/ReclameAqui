@@ -22,4 +22,11 @@ class ReclamacaoTest < ActiveSupport::TestCase
     assert_not @usuario.save
   end
 
+  test "O titulo de uma reclamacao não deve ter mais de 40 caracteres" do
+    @reclamacao = Reclamacao.new(titulo:"A empresaaaA empresaaaA empresaaaA empresaaaA empresaaa", texto:"A", categoria:"suporte", empresa:"empresa1")
+    @usuario = Usuario.new(login:'2425', password_digest:'password', nome:'Edgar')
+    @usuario.reclamacaos << @reclamacao
+    assert_not @usuario.save
+  end
+
 end
