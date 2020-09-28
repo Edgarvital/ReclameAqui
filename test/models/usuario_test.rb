@@ -18,4 +18,9 @@ class UsuarioTest < ActiveSupport::TestCase
     assert_not @usuario.save
   end
 
+  test 'A senha do usuario deve ter no minimo 8 caracteres' do
+    @usuario = Usuario.new(login:'2424', password_digest:'pass', nome:'Edgar')
+    assert_not @usuario.save
+  end
+
 end
