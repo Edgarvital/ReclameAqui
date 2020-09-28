@@ -18,7 +18,7 @@
         <td><%= reclamacao.texto %></td>
         <td><%= link_to 'Visualizar', usuario_reclamacao_path(@usuario, reclamacao) %>
         <%= link_to 'Editar', edit_usuario_reclamacao_path(@usuario, reclamacao) %>
-        <%= link_to 'Destruir', [@usuario, reclamacao], method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Destruir', [@usuario, reclamacao], id:"d-#{reclamacao.titulo}", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%= link_to 'Voltar', [@usuario] %></td>
       </tr>
     <% end %>

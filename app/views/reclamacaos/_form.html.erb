@@ -29,12 +29,12 @@
 
     <div class="field">
       <%=form.label :empresa%>
-      <%= form.select :empresa, [['Empresa1', 'empresa1'], ['Empresa2', 'empresa2'], ['Empresa3', 'empresa3']] %>
+      <%= form.select :empresa, [['Empresa1', 'empresa1'], ['Empresa2', 'empresa2'], ['Empresa3', 'empresa3']], id:"empresa" %>
 
     </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cadastrar", id:"submit" %>
   </div>
 
 <%end %>

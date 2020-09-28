@@ -13,24 +13,24 @@
 
   <div class="field">
     <%= form.label :login %>
-    <%= form.text_field :login %>
+    <%= form.text_field :login, id:"login" %>
   </div>
 
   <div class="field">
     <%= form.label :Senha %>
-    <%= form.password_field :password %>
+    <%= form.password_field :password, id:"senha" %>
   </div>
   <div class="field">
     <%= form.label :Confirmar_Senha %>
-    <%= form.password_field :password_confirmation %>
+    <%= form.password_field :password_confirmation, id:"confirmar_senha" %>
   </div>
 
   <div class="field">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field :nome, id:"nome" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Cadastrar", id:"submit" %>
   </div>
 <% end %>

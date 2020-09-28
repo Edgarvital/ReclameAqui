@@ -3,7 +3,7 @@
 <body>
 <% if current_user == @usuario %>
   <ul>
-    <%= link_to 'Pagina Reclamações', usuario_reclamacaos_path(current_user) %> |
+    <%= link_to 'Reclamações', usuario_reclamacaos_path(current_user) %> |
     <%= link_to "Deletar Usuário", @usuario, method: :delete %> |
     <%= link_to 'Voltar', sessions_index_path %>
   </ul>
