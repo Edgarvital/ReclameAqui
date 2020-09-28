@@ -1,1 +1,37 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+Feature:Reclamacão
+As a usuário do ReclameAqui
+i want to adicionar, remover, editar e visualizar uma reclamacão
+so that outros usuários logados ou nao, possam visualizar minhas reclamacões
+
+Feature:Usuário
+As a usuário nao logado do ReclameAqui
+I want to cadastrar, alterar e visualizar um usuário
+so that eu possa adicionar, remover, editar e visualizar uma reclamação
+
+Feature:Um Usuario logado ou não, pode buscar um artigo pelo nome e pela empresa
+
+Feature:Um Usuário não logado, pode fazer login
+
+Feature:Um Usuário logado, pode fazer logout
+
+Scenario: Criar uma nova Reclamacao
+Given Eu estou na pagina de reclamacoes do usuario
+When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'Enviei uma mensagem de suporte para empresa1 e nao fui respondido', categoria 'Suporte' e empresa 'empresa1'
+Then Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' na minha pagina de reclamacoes
+
+
+Scenario: Remover uma Reclamacao
+Given Eu estou na pagina de reclamacoes do usuario
+When Eu vejo a reclamacao de titulo 'empresa1 nao responde o suporte' e texto 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' e clico em destruir
+Then A reclamacao de titulo 'empresa1 nao responde o suporte' e 'texto Enviei uma mensagem de suporte para empresa1 e nao fui respondido' é removida da pagina de reclamacoes
+
+
+Scenario: Campo obrigatorio em branco
+Given Eu estou na pagina da nova reclamacao
+When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte' e empresa 'empresa1'
+Then Eu vejo os erros 'Texto can't be blank' e 'Categoria can't be blank'
+
+Scenario: Campo com caracteres insuficientes
+Given Eu estou na pagina da nova reclamacao
+When Eu crio a reclamacao com titulo 'empresa1 nao responde o suporte', texto 'envi', categoria 'Suporte' e empresa 'empresa1'
+Then Eu vejo o erro 'Texto is too short (minimum is 10 characters)'
