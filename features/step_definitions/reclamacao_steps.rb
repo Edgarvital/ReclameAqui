@@ -34,3 +34,7 @@ Then ("Eu vejo a reclamacao de titulo {string} e texto {string} na minha pagina 
   expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
 end
 
+Then ("Eu vejo duas mensagens de erro na pagina de nova reclamacao") do
+  assert_selector('div#error_explanation', text:'')
+  expect(page).to have_current_path('/usuarios/'+ Usuario.last.id.to_s + '/reclamacaos')
+end
